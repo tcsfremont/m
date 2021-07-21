@@ -1,0 +1,13 @@
+import pgzrun
+player = Actor("crew")
+player.x = 400
+player.y=600 - player.height*0.5
+def update():
+    if keyboard.left and player.x > player.width*0.5: 
+        player.x -= 3
+    if keyboard.right and player.x < 800 - player.width*0.5:
+        player.x = player.x+3
+def draw():
+    screen.clear()
+    player.draw()
+pgzrun.go()
