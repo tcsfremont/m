@@ -16,16 +16,17 @@ def add_alien():
     alien.x = alien.width * 0.5 + (800 - alien.width * 0.5) * random()
     alien.y = alien.height*0.5
     aliens.append(alien)
-def on_key_donwn(key):
+def on_key_down(key):
     global game_start
-    if not games_start:
+    if not game_start:
         game_start = True
-        clock.schedule_interval(add_alien,5)   
+        clock.schedule_interval(add_alien,5)
+        print("aliens scheduled")
 lasers = []
 def fire_laser():
     global cooled, cooldown
     if cooled:
-        laser = Rect((player.x,player.y),(4,20))
+        laser= Rect((player.x,player.y),(4,20))
         lasers.append(laser)
         cooled = False
         clock.schedule_unique(cool,cooldown)
